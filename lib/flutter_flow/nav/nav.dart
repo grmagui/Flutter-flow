@@ -33,12 +33,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => MenuWidget(),
+      errorBuilder: (context, state) => FormularioWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => MenuWidget(),
+          builder: (context, _) => FormularioWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -54,6 +54,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: Pagina2Widget.routeName,
           path: Pagina2Widget.routePath,
           builder: (context, params) => Pagina2Widget(),
+        ),
+        FFRoute(
+          name: FormularioWidget.routeName,
+          path: FormularioWidget.routePath,
+          builder: (context, params) => FormularioWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
